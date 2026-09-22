@@ -1,7 +1,7 @@
 \begin{table}[!t]
 
 \centering
-\caption{Component ablation under the controlled protocol: five training seeds, one model per process, training and evaluation on the same named terrain. Every variant is retrained from the same seeded state; the full-model row is repeated from Table~\ref{tab:benchmark} for reference.}
+\caption{Component ablation under the controlled protocol: five training seeds, one model per process, training and evaluation on the same named terrain. Every variant is retrained from the same seeded state; the full-model row is the control and is repeated from Table~\ref{tab:benchmark}.}
 \label{tab:module-ablation}
 \footnotesize
 \setlength{\tabcolsep}{4pt}
@@ -9,11 +9,23 @@
 \toprule
 Terrain & Variant & Coverage (\%) & Conflict events \\
 \midrule
-\multirow{5}{*}{Plain} & \textbf{CAST-MARL} & \textbf{48.611 $\pm$ 0.000} & 0 \\
- & w/o Transformer & 29.444 $\pm$ 0.000 & 0 \\
- & w/o Attention & 26.389 $\pm$ 0.000 & 0 \\
- & w/o CTDE & 30.833 $\pm$ 0.000 & 0 \\
- & w/o Safety Layer & 44.722 $\pm$ 0.000 & 8 \\
+\multirow{5}{*}{Plain} & \textbf{CAST-MARL} & \textbf{79.720 $\pm$ 7.200} & 111 \\
+ & w/o Transformer & 63.971 $\pm$ 4.127 & 95 \\
+ & w/o Attention & 61.855 $\pm$ 3.020 & 240 \\
+ & w/o CTDE & 61.113 $\pm$ 5.593 & 100 \\
+ & w/o Safety Layer & 64.109 $\pm$ 3.110 & 328 \\
+\midrule
+\multirow{5}{*}{Urban} & \textbf{CAST-MARL} & \textbf{76.565 $\pm$ 7.807} & 125 \\
+ & w/o Transformer & 63.061 $\pm$ 2.530 & 223 \\
+ & w/o Attention & 60.024 $\pm$ 3.476 & 410 \\
+ & w/o CTDE & 59.778 $\pm$ 4.880 & 174 \\
+ & w/o Safety Layer & 59.102 $\pm$ 4.632 & 420 \\
+\midrule
+\multirow{5}{*}{Mountain} & \textbf{CAST-MARL} & \textbf{73.687 $\pm$ 4.993} & 211 \\
+ & w/o Transformer & 64.178 $\pm$ 2.682 & 60 \\
+ & w/o Attention & 60.148 $\pm$ 2.960 & 292 \\
+ & w/o CTDE & 63.844 $\pm$ 2.831 & 105 \\
+ & w/o Safety Layer & 58.945 $\pm$ 8.871 & 501 \\
 \bottomrule
 \end{tabular}
 \end{table}

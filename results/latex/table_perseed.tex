@@ -14,14 +14,168 @@ Terrain & Seed & Method & Coverage (\%) & Events & Path (m) \\
 \endfoot
 \bottomrule
 \endlastfoot
-\multirow{5}{*}{Plain} & \multirow{5}{*}{42} & \textbf{CAST-MARL} & \textbf{48.611} & 0 & 10844.0 \\
- &  & MAPPO & 27.222 & 0 & 536.8 \\
- &  & MADDPG & 40.556 & 4 & 4683.6 \\
- &  & QMIX & 51.111 & 0 & 6449.0 \\
- &  & PPO & 27.222 & 7 & 715.6 \\
+\multirow{5}{*}{Plain} & \multirow{5}{*}{42} & \textbf{CAST-MARL} & \textbf{86.861} & 18 & 12449.8 \\
+ &  & MAPPO & 67.433 & 0 & 9536.2 \\
+ &  & MADDPG & 66.226 & 563 & 21645.2 \\
+ &  & QMIX & 83.020 & 41 & 21610.4 \\
+ &  & PPO & 65.409 & 9 & 9601.9 \\
 \midrule
-\multirow{4}{*}{Plain} & \multirow{4}{*}{42} & w/o Transformer & 29.444 & 0 & 2034.4 \\
- &  & w/o Attention & 26.389 & 0 & 1754.6 \\
- &  & w/o CTDE & 30.833 & 0 & 2761.7 \\
- &  & w/o Safety Layer & 44.722 & 8 & 9652.4 \\
+\multirow{5}{*}{Plain} & \multirow{5}{*}{43} & \textbf{CAST-MARL} & \textbf{76.504} & 25 & 12029.7 \\
+ &  & MAPPO & 57.123 & 35 & 5009.6 \\
+ &  & MADDPG & 74.476 & 419 & 22560.1 \\
+ &  & QMIX & 83.929 & 15 & 16344.7 \\
+ &  & PPO & 52.909 & 35 & 4077.8 \\
+\midrule
+\multirow{5}{*}{Plain} & \multirow{5}{*}{44} & \textbf{CAST-MARL} & \textbf{69.480} & 47 & 12442.9 \\
+ &  & MAPPO & 63.325 & 27 & 10375.2 \\
+ &  & MADDPG & 70.282 & 454 & 23957.0 \\
+ &  & QMIX & 84.377 & 3 & 12373.9 \\
+ &  & PPO & 62.651 & 20 & 11080.4 \\
+\midrule
+\multirow{5}{*}{Plain} & \multirow{5}{*}{45} & \textbf{CAST-MARL} & \textbf{86.135} & 21 & 14011.2 \\
+ &  & MAPPO & 65.389 & 33 & 9195.1 \\
+ &  & MADDPG & 70.956 & 305 & 23098.3 \\
+ &  & QMIX & 76.044 & 11 & 17360.2 \\
+ &  & PPO & 66.433 & 2 & 10444.5 \\
+\midrule
+\multirow{5}{*}{Plain} & \multirow{5}{*}{46} & \textbf{CAST-MARL} & \textbf{79.619} & 0 & 12245.8 \\
+ &  & MAPPO & 66.583 & 0 & 9472.3 \\
+ &  & MADDPG & 67.155 & 565 & 21748.5 \\
+ &  & QMIX & 87.159 & 14 & 17571.4 \\
+ &  & PPO & 58.163 & 34 & 6052.6 \\
+\midrule
+\multirow{5}{*}{Urban} & \multirow{5}{*}{42} & \textbf{CAST-MARL} & \textbf{80.155} & 15 & 12741.5 \\
+ &  & MAPPO & 63.401 & 18 & 10685.2 \\
+ &  & MADDPG & 67.556 & 648 & 24710.6 \\
+ &  & QMIX & 78.770 & 15 & 20152.0 \\
+ &  & PPO & 62.357 & 7 & 6862.3 \\
+\midrule
+\multirow{5}{*}{Urban} & \multirow{5}{*}{43} & \textbf{CAST-MARL} & \textbf{84.444} & 32 & 14416.0 \\
+ &  & MAPPO & 63.948 & 24 & 6594.2 \\
+ &  & MADDPG & 71.754 & 150 & 21545.5 \\
+ &  & QMIX & 85.857 & 22 & 21582.5 \\
+ &  & PPO & 63.516 & 18 & 8215.5 \\
+\midrule
+\multirow{5}{*}{Urban} & \multirow{5}{*}{44} & \textbf{CAST-MARL} & \textbf{78.095} & 23 & 12354.4 \\
+ &  & MAPPO & 64.060 & 112 & 9473.6 \\
+ &  & MADDPG & 75.667 & 359 & 23285.0 \\
+ &  & QMIX & 88.369 & 41 & 21750.8 \\
+ &  & PPO & 53.024 & 70 & 10623.5 \\
+\midrule
+\multirow{5}{*}{Urban} & \multirow{5}{*}{45} & \textbf{CAST-MARL} & \textbf{63.663} & 49 & 12752.7 \\
+ &  & MAPPO & 58.690 & 59 & 7729.2 \\
+ &  & MADDPG & 66.599 & 287 & 22492.2 \\
+ &  & QMIX & 70.857 & 43 & 18497.1 \\
+ &  & PPO & 56.194 & 35 & 5919.3 \\
+\midrule
+\multirow{5}{*}{Urban} & \multirow{5}{*}{46} & \textbf{CAST-MARL} & \textbf{76.468} & 6 & 12413.6 \\
+ &  & MAPPO & 65.206 & 10 & 8841.6 \\
+ &  & MADDPG & 73.762 & 706 & 24153.3 \\
+ &  & QMIX & 75.024 & 7 & 13032.6 \\
+ &  & PPO & 63.798 & 44 & 8431.1 \\
+\midrule
+\multirow{5}{*}{Mountain} & \multirow{5}{*}{42} & \textbf{CAST-MARL} & \textbf{80.274} & 82 & 12480.1 \\
+ &  & MAPPO & 64.488 & 10 & 8337.7 \\
+ &  & MADDPG & 74.131 & 455 & 24090.3 \\
+ &  & QMIX & 78.837 & 18 & 18739.8 \\
+ &  & PPO & 64.992 & 61 & 9526.6 \\
+\midrule
+\multirow{5}{*}{Mountain} & \multirow{5}{*}{43} & \textbf{CAST-MARL} & \textbf{77.508} & 20 & 12149.6 \\
+ &  & MAPPO & 67.794 & 0 & 9224.1 \\
+ &  & MADDPG & 69.500 & 704 & 22827.1 \\
+ &  & QMIX & 77.448 & 79 & 18533.7 \\
+ &  & PPO & 66.802 & 14 & 6235.4 \\
+\midrule
+\multirow{5}{*}{Mountain} & \multirow{5}{*}{44} & \textbf{CAST-MARL} & \textbf{71.714} & 25 & 15216.5 \\
+ &  & MAPPO & 60.560 & 18 & 7291.5 \\
+ &  & MADDPG & 74.357 & 356 & 21977.8 \\
+ &  & QMIX & 77.214 & 24 & 17721.6 \\
+ &  & PPO & 63.385 & 17 & 7421.6 \\
+\midrule
+\multirow{5}{*}{Mountain} & \multirow{5}{*}{45} & \textbf{CAST-MARL} & \textbf{70.536} & 45 & 12106.0 \\
+ &  & MAPPO & 65.131 & 32 & 9100.5 \\
+ &  & MADDPG & 72.877 & 419 & 23141.5 \\
+ &  & QMIX & 74.286 & 7 & 14791.7 \\
+ &  & PPO & 59.270 & 13 & 5834.5 \\
+\midrule
+\multirow{5}{*}{Mountain} & \multirow{5}{*}{46} & \textbf{CAST-MARL} & \textbf{68.405} & 39 & 13966.2 \\
+ &  & MAPPO & 62.917 & 0 & 7257.1 \\
+ &  & MADDPG & 72.226 & 592 & 22343.8 \\
+ &  & QMIX & 83.754 & 5 & 14803.2 \\
+ &  & PPO & 64.770 & 0 & 8793.0 \\
+\midrule
+\multirow{4}{*}{Plain} & \multirow{4}{*}{42} & w/o Transformer & 67.433 & 0 & 9536.2 \\
+ &  & w/o Attention & 56.988 & 34 & 12247.0 \\
+ &  & w/o CTDE & 65.409 & 9 & 9601.9 \\
+ &  & w/o Safety Layer & 64.857 & 74 & 15179.3 \\
+\midrule
+\multirow{4}{*}{Plain} & \multirow{4}{*}{43} & w/o Transformer & 57.123 & 35 & 5009.6 \\
+ &  & w/o Attention & 64.972 & 31 & 11704.9 \\
+ &  & w/o CTDE & 52.909 & 35 & 4077.8 \\
+ &  & w/o Safety Layer & 65.452 & 93 & 14439.9 \\
+\midrule
+\multirow{4}{*}{Plain} & \multirow{4}{*}{44} & w/o Transformer & 63.325 & 27 & 10375.2 \\
+ &  & w/o Attention & 61.401 & 55 & 16670.5 \\
+ &  & w/o CTDE & 62.651 & 20 & 11080.4 \\
+ &  & w/o Safety Layer & 67.694 & 86 & 17508.9 \\
+\midrule
+\multirow{4}{*}{Plain} & \multirow{4}{*}{45} & w/o Transformer & 65.389 & 33 & 9195.1 \\
+ &  & w/o Attention & 62.484 & 44 & 11881.8 \\
+ &  & w/o CTDE & 66.433 & 2 & 10444.5 \\
+ &  & w/o Safety Layer & 63.190 & 23 & 12169.8 \\
+\midrule
+\multirow{4}{*}{Plain} & \multirow{4}{*}{46} & w/o Transformer & 66.583 & 0 & 9472.3 \\
+ &  & w/o Attention & 63.429 & 76 & 18104.3 \\
+ &  & w/o CTDE & 58.163 & 34 & 6052.6 \\
+ &  & w/o Safety Layer & 59.353 & 52 & 13100.4 \\
+\midrule
+\multirow{4}{*}{Urban} & \multirow{4}{*}{42} & w/o Transformer & 63.401 & 18 & 10685.2 \\
+ &  & w/o Attention & 57.806 & 125 & 14817.0 \\
+ &  & w/o CTDE & 62.357 & 7 & 6862.3 \\
+ &  & w/o Safety Layer & 53.123 & 126 & 12032.4 \\
+\midrule
+\multirow{4}{*}{Urban} & \multirow{4}{*}{43} & w/o Transformer & 63.948 & 24 & 6594.2 \\
+ &  & w/o Attention & 64.964 & 11 & 12518.0 \\
+ &  & w/o CTDE & 63.516 & 18 & 8215.5 \\
+ &  & w/o Safety Layer & 63.381 & 92 & 10473.1 \\
+\midrule
+\multirow{4}{*}{Urban} & \multirow{4}{*}{44} & w/o Transformer & 64.060 & 112 & 9473.6 \\
+ &  & w/o Attention & 59.766 & 150 & 14679.7 \\
+ &  & w/o CTDE & 53.024 & 70 & 10623.5 \\
+ &  & w/o Safety Layer & 64.194 & 127 & 13445.1 \\
+\midrule
+\multirow{4}{*}{Urban} & \multirow{4}{*}{45} & w/o Transformer & 58.690 & 59 & 7729.2 \\
+ &  & w/o Attention & 55.972 & 55 & 12002.2 \\
+ &  & w/o CTDE & 56.194 & 35 & 5919.3 \\
+ &  & w/o Safety Layer & 57.607 & 27 & 12600.3 \\
+\midrule
+\multirow{4}{*}{Urban} & \multirow{4}{*}{46} & w/o Transformer & 65.206 & 10 & 8841.6 \\
+ &  & w/o Attention & 61.611 & 69 & 15352.3 \\
+ &  & w/o CTDE & 63.798 & 44 & 8431.1 \\
+ &  & w/o Safety Layer & 57.206 & 48 & 14753.0 \\
+\midrule
+\multirow{4}{*}{Mountain} & \multirow{4}{*}{42} & w/o Transformer & 64.488 & 10 & 8337.7 \\
+ &  & w/o Attention & 61.496 & 39 & 16986.4 \\
+ &  & w/o CTDE & 64.992 & 61 & 9526.6 \\
+ &  & w/o Safety Layer & 48.151 & 5 & 9379.6 \\
+\midrule
+\multirow{4}{*}{Mountain} & \multirow{4}{*}{43} & w/o Transformer & 67.794 & 0 & 9224.1 \\
+ &  & w/o Attention & 58.734 & 27 & 10087.5 \\
+ &  & w/o CTDE & 66.802 & 14 & 6235.4 \\
+ &  & w/o Safety Layer & 72.373 & 32 & 14214.7 \\
+\midrule
+\multirow{4}{*}{Mountain} & \multirow{4}{*}{44} & w/o Transformer & 60.560 & 18 & 7291.5 \\
+ &  & w/o Attention & 55.639 & 140 & 14411.1 \\
+ &  & w/o CTDE & 63.385 & 17 & 7421.6 \\
+ &  & w/o Safety Layer & 59.274 & 195 & 17455.4 \\
+\midrule
+\multirow{4}{*}{Mountain} & \multirow{4}{*}{45} & w/o Transformer & 65.131 & 32 & 9100.5 \\
+ &  & w/o Attention & 62.897 & 17 & 14855.9 \\
+ &  & w/o CTDE & 59.270 & 13 & 5834.5 \\
+ &  & w/o Safety Layer & 54.873 & 55 & 11656.3 \\
+\midrule
+\multirow{4}{*}{Mountain} & \multirow{4}{*}{46} & w/o Transformer & 62.917 & 0 & 7257.1 \\
+ &  & w/o Attention & 61.976 & 69 & 15833.3 \\
+ &  & w/o CTDE & 64.770 & 0 & 8793.0 \\
+ &  & w/o Safety Layer & 60.056 & 214 & 16286.2 \\
 \end{longtable}

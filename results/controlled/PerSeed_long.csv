@@ -1,10 +1,136 @@
 kind,terrain,seed,eval_env,eval_seed,method,coverage_mean,conflict_rate_mean,conflict_events_total,episodes_with_conflict,path_length_mean,reward_mean
-benchmark,plain,42,terrain_plain,94201,CAST-MARL,48.61111,0.0,0,0,10844.046,38.14654
-benchmark,plain,42,terrain_plain,94201,MAPPO,27.22222,0.0,0,0,536.802,22.10917
-benchmark,plain,42,terrain_plain,94201,PPO,27.22222,0.00666667,7,1,715.553,21.82187
-benchmark,plain,42,terrain_plain,94201,MADDPG,40.55556,0.00380952,4,1,4683.627,35.04853
-benchmark,plain,42,terrain_plain,94201,QMIX,51.11111,0.0,0,0,6448.951,49.47235
-ablation,plain,42,terrain_plain,94201,w/o Transformer,29.44444,0.0,0,0,2034.391,24.95693
-ablation,plain,42,terrain_plain,94201,w/o Attention,26.38889,0.0,0,0,1754.569,22.04757
-ablation,plain,42,terrain_plain,94201,w/o CTDE,30.83333,0.0,0,0,2761.653,25.32663
-ablation,plain,42,terrain_plain,94201,w/o Safety Layer,44.72222,0.00761905,8,1,9652.444,35.82494
+benchmark,mountain,42,terrain_mountain,94203,MADDPG,74.13095,0.04333333,455,19,24090.302,59.58047
+benchmark,mountain,42,terrain_mountain,94203,MAPPO,64.4881,0.00095238,10,1,8337.661,58.68465
+ablation,mountain,42,terrain_mountain,94203,w/o Attention,61.49603,0.00371429,39,6,16986.426,46.9636
+ablation,mountain,42,terrain_mountain,94203,w/o CTDE,64.99206,0.00580952,61,4,9526.641,56.71517
+ablation,mountain,42,terrain_mountain,94203,w/o Transformer,64.4881,0.00095238,10,1,8337.661,58.68465
+benchmark,mountain,42,terrain_mountain,94203,PPO,64.99206,0.00580952,61,4,9526.641,56.71517
+benchmark,mountain,42,terrain_mountain,94203,QMIX,78.8373,0.00171429,18,5,18739.811,66.5244
+benchmark,mountain,42,terrain_mountain,94203,CAST-MARL,80.27381,0.00780952,82,6,12480.113,65.60382
+ablation,mountain,42,terrain_mountain,94203,w/o Safety Layer,48.15079,0.00047619,5,1,9379.62,38.92406
+benchmark,mountain,43,terrain_mountain,94303,MADDPG,69.5,0.06704762,704,20,22827.097,56.63611
+benchmark,mountain,43,terrain_mountain,94303,MAPPO,67.79365,0.0,0,0,9224.1,61.85015
+ablation,mountain,43,terrain_mountain,94303,w/o Attention,58.73413,0.00257143,27,2,10087.475,55.0694
+ablation,mountain,43,terrain_mountain,94303,w/o CTDE,66.80159,0.00133333,14,2,6235.377,62.25407
+ablation,mountain,43,terrain_mountain,94303,w/o Transformer,67.79365,0.0,0,0,9224.1,61.85015
+benchmark,mountain,43,terrain_mountain,94303,PPO,66.80159,0.00133333,14,2,6235.377,62.25407
+benchmark,mountain,43,terrain_mountain,94303,QMIX,77.44841,0.00752381,79,7,18533.743,63.79327
+benchmark,mountain,43,terrain_mountain,94303,CAST-MARL,77.50794,0.00190476,20,4,12149.553,66.37655
+ablation,mountain,43,terrain_mountain,94303,w/o Safety Layer,72.37302,0.00304762,32,4,14214.72,61.2031
+benchmark,mountain,44,terrain_mountain,94403,MADDPG,74.35714,0.03390476,356,20,21977.787,62.82586
+benchmark,mountain,44,terrain_mountain,94403,MAPPO,60.55952,0.00171429,18,1,7291.513,55.4632
+ablation,mountain,44,terrain_mountain,94403,w/o Attention,55.63889,0.01333333,140,10,14411.091,47.53027
+ablation,mountain,44,terrain_mountain,94403,w/o CTDE,63.38492,0.00161905,17,2,7421.642,58.61956
+ablation,mountain,44,terrain_mountain,94403,w/o Transformer,60.55952,0.00171429,18,1,7291.513,55.4632
+benchmark,mountain,44,terrain_mountain,94403,PPO,63.38492,0.00161905,17,2,7421.642,58.61956
+benchmark,mountain,44,terrain_mountain,94403,QMIX,77.21429,0.00228571,24,7,17721.642,66.99632
+benchmark,mountain,44,terrain_mountain,94403,CAST-MARL,71.71429,0.00238095,25,3,15216.518,57.87977
+ablation,mountain,44,terrain_mountain,94403,w/o Safety Layer,59.27381,0.01857143,195,10,17455.387,45.62945
+benchmark,mountain,45,terrain_mountain,94503,MADDPG,72.87698,0.03990476,419,19,23141.485,59.0915
+benchmark,mountain,45,terrain_mountain,94503,MAPPO,65.13095,0.00304762,32,3,9100.456,56.34576
+ablation,mountain,45,terrain_mountain,94503,w/o Attention,62.89683,0.00161905,17,2,14855.923,49.74441
+ablation,mountain,45,terrain_mountain,94503,w/o CTDE,59.26984,0.0012381,13,2,5834.528,51.68814
+ablation,mountain,45,terrain_mountain,94503,w/o Transformer,65.13095,0.00304762,32,3,9100.456,56.34576
+benchmark,mountain,45,terrain_mountain,94503,PPO,59.26984,0.0012381,13,2,5834.528,51.68814
+benchmark,mountain,45,terrain_mountain,94503,QMIX,74.28571,0.00066667,7,4,14791.73,65.4724
+benchmark,mountain,45,terrain_mountain,94503,CAST-MARL,70.53571,0.00428571,45,4,12105.978,58.82096
+ablation,mountain,45,terrain_mountain,94503,w/o Safety Layer,54.87302,0.0052381,55,5,11656.267,47.14075
+benchmark,mountain,46,terrain_mountain,94603,MADDPG,72.22619,0.05638095,592,20,22343.822,61.48979
+benchmark,mountain,46,terrain_mountain,94603,MAPPO,62.91667,0.0,0,0,7257.144,57.80116
+ablation,mountain,46,terrain_mountain,94603,w/o Attention,61.97619,0.00657143,69,6,15833.253,49.92522
+ablation,mountain,46,terrain_mountain,94603,w/o CTDE,64.76984,0.0,0,0,8793.037,57.37956
+ablation,mountain,46,terrain_mountain,94603,w/o Transformer,62.91667,0.0,0,0,7257.144,57.80116
+benchmark,mountain,46,terrain_mountain,94603,PPO,64.76984,0.0,0,0,8793.037,57.37956
+benchmark,mountain,46,terrain_mountain,94603,QMIX,83.75397,0.00047619,5,2,14803.16,70.58322
+benchmark,mountain,46,terrain_mountain,94603,CAST-MARL,68.40476,0.00371429,39,3,13966.225,60.06649
+ablation,mountain,46,terrain_mountain,94603,w/o Safety Layer,60.05556,0.02038095,214,14,16286.189,49.19681
+benchmark,plain,42,terrain_plain,94201,MADDPG,66.22619,0.05361905,563,20,21645.173,53.21557
+benchmark,plain,42,terrain_plain,94201,MAPPO,67.43254,0.0,0,0,9536.228,59.57164
+ablation,plain,42,terrain_plain,94201,w/o Attention,56.9881,0.0032381,34,3,12247.045,47.76836
+ablation,plain,42,terrain_plain,94201,w/o CTDE,65.40873,0.00085714,9,2,9601.924,57.85663
+ablation,plain,42,terrain_plain,94201,w/o Transformer,67.43254,0.0,0,0,9536.228,59.57164
+benchmark,plain,42,terrain_plain,94201,PPO,65.40873,0.00085714,9,2,9601.924,57.85663
+benchmark,plain,42,terrain_plain,94201,QMIX,83.01984,0.00390476,41,7,21610.363,67.01889
+benchmark,plain,42,terrain_plain,94201,CAST-MARL,86.86111,0.00171429,18,6,12449.804,71.83445
+ablation,plain,42,terrain_plain,94201,w/o Safety Layer,64.85714,0.00704762,74,10,15179.257,54.35524
+benchmark,plain,43,terrain_plain,94301,MADDPG,74.47619,0.03990476,419,20,22560.074,62.6684
+benchmark,plain,43,terrain_plain,94301,MAPPO,57.12302,0.00333333,35,1,5009.637,52.72389
+ablation,plain,43,terrain_plain,94301,w/o Attention,64.97222,0.00295238,31,2,11704.914,53.98518
+ablation,plain,43,terrain_plain,94301,w/o CTDE,52.90873,0.00333333,35,1,4077.805,50.59117
+ablation,plain,43,terrain_plain,94301,w/o Transformer,57.12302,0.00333333,35,1,5009.637,52.72389
+benchmark,plain,43,terrain_plain,94301,PPO,52.90873,0.00333333,35,1,4077.805,50.59117
+benchmark,plain,43,terrain_plain,94301,QMIX,83.92857,0.00142857,15,5,16344.68,69.49453
+benchmark,plain,43,terrain_plain,94301,CAST-MARL,76.50397,0.00238095,25,6,12029.701,65.49319
+ablation,plain,43,terrain_plain,94301,w/o Safety Layer,65.45238,0.00885714,93,7,14439.883,55.45254
+benchmark,plain,44,terrain_plain,94401,MADDPG,70.28175,0.0432381,454,20,23956.999,56.78798
+benchmark,plain,44,terrain_plain,94401,MAPPO,63.3254,0.00257143,27,3,10375.205,56.63561
+ablation,plain,44,terrain_plain,94401,w/o Attention,61.40079,0.0052381,55,4,16670.513,47.9581
+ablation,plain,44,terrain_plain,94401,w/o CTDE,62.65079,0.00190476,20,1,11080.353,55.50258
+ablation,plain,44,terrain_plain,94401,w/o Transformer,63.3254,0.00257143,27,3,10375.205,56.63561
+benchmark,plain,44,terrain_plain,94401,PPO,62.65079,0.00190476,20,1,11080.353,55.50258
+benchmark,plain,44,terrain_plain,94401,QMIX,84.37698,0.00028571,3,2,12373.868,74.60639
+benchmark,plain,44,terrain_plain,94401,CAST-MARL,69.48016,0.00447619,47,6,12442.893,58.92717
+ablation,plain,44,terrain_plain,94401,w/o Safety Layer,67.69444,0.00819048,86,7,17508.857,56.6623
+benchmark,plain,45,terrain_plain,94501,MADDPG,70.95635,0.02904762,305,20,23098.342,59.01563
+benchmark,plain,45,terrain_plain,94501,MAPPO,65.38889,0.00314286,33,3,9195.136,60.27971
+ablation,plain,45,terrain_plain,94501,w/o Attention,62.48413,0.00419048,44,3,11881.757,51.03448
+ablation,plain,45,terrain_plain,94501,w/o CTDE,66.43254,0.00019048,2,1,10444.489,58.93316
+ablation,plain,45,terrain_plain,94501,w/o Transformer,65.38889,0.00314286,33,3,9195.136,60.27971
+benchmark,plain,45,terrain_plain,94501,PPO,66.43254,0.00019048,2,1,10444.489,58.93316
+benchmark,plain,45,terrain_plain,94501,QMIX,76.04365,0.00104762,11,5,17360.248,62.74611
+benchmark,plain,45,terrain_plain,94501,CAST-MARL,86.13492,0.002,21,6,14011.186,69.29097
+ablation,plain,45,terrain_plain,94501,w/o Safety Layer,63.19048,0.00219048,23,4,12169.778,54.16251
+benchmark,plain,46,terrain_plain,94601,MADDPG,67.15476,0.05380952,565,20,21748.477,56.0304
+benchmark,plain,46,terrain_plain,94601,MAPPO,66.58333,0.0,0,0,9472.257,59.3186
+ablation,plain,46,terrain_plain,94601,w/o Attention,63.42857,0.0072381,76,6,18104.344,51.06784
+ablation,plain,46,terrain_plain,94601,w/o CTDE,58.1627,0.0032381,34,2,6052.614,54.11806
+ablation,plain,46,terrain_plain,94601,w/o Transformer,66.58333,0.0,0,0,9472.257,59.3186
+benchmark,plain,46,terrain_plain,94601,PPO,58.1627,0.0032381,34,2,6052.614,54.11806
+benchmark,plain,46,terrain_plain,94601,QMIX,87.15873,0.00133333,14,5,17571.367,71.07145
+benchmark,plain,46,terrain_plain,94601,CAST-MARL,79.61905,0.0,0,0,12245.754,66.1143
+ablation,plain,46,terrain_plain,94601,w/o Safety Layer,59.35317,0.00495238,52,5,13100.38,51.33611
+benchmark,urban,42,terrain_urban,94202,MADDPG,67.55556,0.06171429,648,20,24710.648,53.78664
+benchmark,urban,42,terrain_urban,94202,MAPPO,63.40079,0.00171429,18,2,10685.202,55.45758
+ablation,urban,42,terrain_urban,94202,w/o Attention,57.80556,0.01190476,125,9,14817.02,45.82799
+ablation,urban,42,terrain_urban,94202,w/o CTDE,62.35714,0.00066667,7,1,6862.325,55.14169
+ablation,urban,42,terrain_urban,94202,w/o Transformer,63.40079,0.00171429,18,2,10685.202,55.45758
+benchmark,urban,42,terrain_urban,94202,PPO,62.35714,0.00066667,7,1,6862.325,55.14169
+benchmark,urban,42,terrain_urban,94202,QMIX,78.76984,0.00142857,15,6,20151.97,61.06581
+benchmark,urban,42,terrain_urban,94202,CAST-MARL,80.15476,0.00142857,15,4,12741.501,65.5418
+ablation,urban,42,terrain_urban,94202,w/o Safety Layer,53.12302,0.012,126,8,12032.421,45.09267
+benchmark,urban,43,terrain_urban,94302,MADDPG,71.75397,0.01428571,150,20,21545.492,61.50822
+benchmark,urban,43,terrain_urban,94302,MAPPO,63.94841,0.00228571,24,2,6594.208,55.42953
+ablation,urban,43,terrain_urban,94302,w/o Attention,64.96429,0.00104762,11,2,12517.963,55.02277
+ablation,urban,43,terrain_urban,94302,w/o CTDE,63.51587,0.00171429,18,2,8215.486,54.61989
+ablation,urban,43,terrain_urban,94302,w/o Transformer,63.94841,0.00228571,24,2,6594.208,55.42953
+benchmark,urban,43,terrain_urban,94302,PPO,63.51587,0.00171429,18,2,8215.486,54.61989
+benchmark,urban,43,terrain_urban,94302,QMIX,85.85714,0.00209524,22,6,21582.481,66.72733
+benchmark,urban,43,terrain_urban,94302,CAST-MARL,84.44444,0.00304762,32,9,14416.028,66.79871
+ablation,urban,43,terrain_urban,94302,w/o Safety Layer,63.38095,0.0087619,92,3,10473.066,53.21993
+benchmark,urban,44,terrain_urban,94402,MADDPG,75.66667,0.03419048,359,19,23285.038,62.02204
+benchmark,urban,44,terrain_urban,94402,MAPPO,64.05952,0.01066667,112,4,9473.59,56.32048
+ablation,urban,44,terrain_urban,94402,w/o Attention,59.76587,0.01428571,150,9,14679.671,48.09923
+ablation,urban,44,terrain_urban,94402,w/o CTDE,53.02381,0.00666667,70,2,10623.54,47.32564
+ablation,urban,44,terrain_urban,94402,w/o Transformer,64.05952,0.01066667,112,4,9473.59,56.32048
+benchmark,urban,44,terrain_urban,94402,PPO,53.02381,0.00666667,70,2,10623.54,47.32564
+benchmark,urban,44,terrain_urban,94402,QMIX,88.36905,0.00390476,41,10,21750.786,68.71129
+benchmark,urban,44,terrain_urban,94402,CAST-MARL,78.09524,0.00219048,23,6,12354.438,64.05219
+ablation,urban,44,terrain_urban,94402,w/o Safety Layer,64.19444,0.01209524,127,7,13445.091,50.52678
+benchmark,urban,45,terrain_urban,94502,MADDPG,66.59921,0.02733333,287,19,22492.241,52.62391
+benchmark,urban,45,terrain_urban,94502,MAPPO,58.69048,0.00561905,59,4,7729.162,48.93792
+ablation,urban,45,terrain_urban,94502,w/o Attention,55.97222,0.0052381,55,2,12002.182,43.43402
+ablation,urban,45,terrain_urban,94502,w/o CTDE,56.19444,0.00333333,35,1,5919.298,48.17189
+ablation,urban,45,terrain_urban,94502,w/o Transformer,58.69048,0.00561905,59,4,7729.162,48.93792
+benchmark,urban,45,terrain_urban,94502,PPO,56.19444,0.00333333,35,1,5919.298,48.17189
+benchmark,urban,45,terrain_urban,94502,QMIX,70.85714,0.00409524,43,7,18497.107,54.06376
+benchmark,urban,45,terrain_urban,94502,CAST-MARL,63.6627,0.00466667,49,8,12752.679,52.90274
+ablation,urban,45,terrain_urban,94502,w/o Safety Layer,57.60714,0.00257143,27,4,12600.294,44.65344
+benchmark,urban,46,terrain_urban,94602,MADDPG,73.7619,0.0672381,706,20,24153.262,60.176
+benchmark,urban,46,terrain_urban,94602,MAPPO,65.20635,0.00095238,10,2,8841.606,57.03237
+ablation,urban,46,terrain_urban,94602,w/o Attention,61.61111,0.00657143,69,5,15352.259,48.06078
+ablation,urban,46,terrain_urban,94602,w/o CTDE,63.79762,0.00419048,44,4,8431.105,55.91632
+ablation,urban,46,terrain_urban,94602,w/o Transformer,65.20635,0.00095238,10,2,8841.606,57.03237
+benchmark,urban,46,terrain_urban,94602,PPO,63.79762,0.00419048,44,4,8431.105,55.91632
+benchmark,urban,46,terrain_urban,94602,QMIX,75.02381,0.00066667,7,5,13032.635,63.5194
+benchmark,urban,46,terrain_urban,94602,CAST-MARL,76.46825,0.00057143,6,2,12413.628,64.8201
+ablation,urban,46,terrain_urban,94602,w/o Safety Layer,57.20635,0.00457143,48,6,14752.952,47.11077

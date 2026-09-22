@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""R1-3 / R3-4 fair-budget control: single-terrain continued training.
+"""Fair-budget control: single-terrain continued training.
 
-Reviewer concern
-----------------
+Motivation
+----------
 The archived multi-domain run continued from the single-terrain plain
 checkpoint for 160 PPO iterations on a 4-terrain mix.  The single-terrain
 reference checkpoint had only 80 iterations.  The reported coverage gain is

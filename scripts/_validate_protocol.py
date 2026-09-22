@@ -9,7 +9,7 @@ protocol with NO safety layer, evaluated over seeds 42-46 x 12 episodes:
 
 If this script reproduces those values, then the instrumented episode loop in
 exp_fallback_threshold.py faithfully reproduces the archived protocol and can
-be trusted for the new reviewer-mandated experiments.
+be trusted for the follow-up experiments.
 """
 from __future__ import annotations
 

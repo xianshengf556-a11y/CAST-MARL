@@ -1,33 +1,13 @@
 # -*- coding: utf-8 -*-
 """Controlled re-run of the terrain benchmark and the component ablation.
 
-WHY THIS SCRIPT EXISTS
-----------------------
-The archived terrain tables (paper Table 2 and Table 4) were produced by
-run_train_pipeline(), whose evaluation calls hardcode the evaluation
-environment:
-
-    line 5829  CAST-MARL  -> evaluate_controller(...)                    # env_type defaults to "simple"
-    lines 5830-5833  MAPPO/MADDPG/QMIX/PPO -> env_type="simple"
-    line 5851  ALL ablation variants       -> env_type="dynamic_users"
-
-and the ablation evaluation passes no `eval_seed`, so it is not even
-deterministic.  The tables are therefore labelled "terrain-wise" while the
-evaluation environment is the same for every row, and the ablation was not
-evaluated on terrain at all.
-
-This script fixes the protocol:
-  * training env  = the named terrain (unchanged, same hyperparameters)
-  * evaluation env = the SAME named terrain (config.train_env)
-  * evaluation is seeded with a fixed, documented eval_seed
-  * episodes = 20 for every method and every variant (more data than the
-    archived 20/12 split, to give the conflict statistics a chance)
-  * per-episode conflict SAMPLES are stored so integer pair-event counts can
-    be recovered exactly (reviewer 2 concern 13)
-
-Everything else (network, reward, PPO settings, per-terrain hyperparameters)
-is taken verbatim from the archived summary.json of the corresponding terrain,
-so the ONLY change relative to the archive is the evaluation protocol.
+PROTOCOL
+--------
+This driver applies the evaluation protocol documented in the paper: training
+and evaluation use the same named terrain, the evaluation seed is fixed and
+recorded, five training seeds are used, one model is trained per process so
+that every model starts from the same seeded state, and per-episode conflict
+samples are exported so that integer pair-event counts can be recovered.
 
 ONE (terrain, seed) PER PROCESS so the run can be parallelised.
 

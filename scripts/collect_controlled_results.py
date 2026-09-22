@@ -9,7 +9,7 @@ Output: CSV tables with
             counts, with an exact Poisson (Garwood) 95% confidence interval
           * the number of evaluation episodes that contained any conflict at
             all -- this is the quantity that shows why the original ablation
-            conflict column was not interpretable (reviewer 2 concern 13)
+            conflict column needs integer event counts to be interpretable
 
 Usage:
   python collect_controlled_results.py --indir <dir> --outdir <dir>
@@ -190,7 +190,7 @@ def main():
     write_csv(os.path.join(args.outdir, "PerSeed_long.csv"), long_rows)
 
     # human-readable console summary of the conflict evidence
-    print("\nCONFLICT EVIDENCE (the reviewer-2 concern-13 question)")
+    print("\nCONFLICT EVIDENCE: integer pair-event counts per condition")
     print("%-9s %-18s %8s %10s %12s %14s"
           % ("terrain", "variant", "events", "eps", "eps_with", "rate[95% CI]"))
     for row in abl_rows:

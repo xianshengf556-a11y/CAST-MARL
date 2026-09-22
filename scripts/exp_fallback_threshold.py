@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-"""Reviewer 3 concern 9 and Reviewer 2 concern 9.
+"""Empty-feasible-set statistics and threshold sweeps.
 
-R3-9: "Characterize the empty-set fallback frequency across scenarios and
-fleet sizes and discuss whether consecutive empty sets can occur."
-
-R2-9: "The impact of various threshold of d_safe should be reported in ablation
-study so as for d_conflict apart from the fixed values. How this is chosen,
-why fix number not range..."
+This script characterizes two things.  First, how often the execution filter
+finds no admissible correction at all, across terrain conditions and fleet
+sizes, and whether such failures occur in consecutive steps for a single
+vehicle.  Second, how the separation margin of the filter and the
+conflict-reporting threshold affect the reported behavior.
 
 DESIGN NOTES (important for defensibility)
 ------------------------------------------

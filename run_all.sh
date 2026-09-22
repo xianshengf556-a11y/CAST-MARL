@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ============================================================================
-#  CAST-MARL — IEEE Access resubmission: full experiment driver
+#  CAST-MARL — full experiment driver: controlled benchmark, ablations, analyses
 # ============================================================================
 #  Usage (on the server, from the bundle root):
 #

@@ -23,11 +23,24 @@ experimental_runs/
   reproducibility/     experiment source and benchmark modules
   *.pth                the two archived checkpoints
 scripts/               drivers that produce every reported table
+  run_terrain_controlled.py         controlled benchmark + component ablation
+  collect_controlled_results.py     aggregation into the paper tables
+  exp_fallback_threshold.py         empty-feasible-set statistics + threshold sweeps
+  run_runtime_stats.py              filter decision-time distribution
+  exp_low_coverage.py               low-coverage regime test
+  exp_correction_scale.py           correction-reach sweep
+  exp_crossmap_comparison.py        planner and safety-layer comparison on unseen maps
+  exp_reward_sensitivity.py         reward-coefficient sensitivity
+  run_control_single_terrain_160.py matched training-budget control
 archived_configs/      archived per-terrain configuration (used verbatim)
 dataset/               task datasets (0.5 MB)
 results/               outputs of the drivers, including the paper tables
 run_all.sh             one-command reproduction
 ```
+
+The single-purpose analyses (`exp_*.py`, plus the budget control) are run
+directly and write one CSV each; they are the evidence behind the corresponding
+sections of the paper and of the response document.
 
 ## Environment
 

@@ -1,13 +1,33 @@
 # -*- coding: utf-8 -*-
 """Controlled re-run of the terrain benchmark and the component ablation.
 
-PROTOCOL
---------
-This driver applies the evaluation protocol documented in the paper: training
-and evaluation use the same named terrain, the evaluation seed is fixed and
-recorded, five training seeds are used, one model is trained per process so
-that every model starts from the same seeded state, and per-episode conflict
-samples are exported so that integer pair-event counts can be recovered.
+WHY THIS SCRIPT EXISTS
+----------------------
+The archived terrain tables (paper Table 2 and Table 4) were produced by
+run_train_pipeline(), whose evaluation calls hardcode the evaluation
+environment:
+
+    line 5829  CAST-MARL  -> evaluate_controller(...)                    # env_type defaults to "simple"
+    lines 5830-5833  MAPPO/MADDPG/QMIX/PPO -> env_type="simple"
+    line 5851  ALL ablation variants       -> env_type="dynamic_users"
+
+and the ablation evaluation passes no `eval_seed`, so it is not even
+deterministic.  The tables are therefore labelled "terrain-wise" while the
+evaluation environment is the same for every row, and the ablation was not
+evaluated on terrain at all.
+
+This script fixes the protocol:
+  * training env  = the named terrain (unchanged, same hyperparameters)
+  * evaluation env = the SAME named terrain (config.train_env)
+  * evaluation is seeded with a fixed, documented eval_seed
+  * episodes = 20 for every method and every variant (more data than the
+    archived 20/12 split, to give the conflict statistics a chance)
+  * per-episode conflict SAMPLES are stored so integer pair-event counts can
+    be recovered exactly from the per-episode records
+
+Everything else (network, reward, PPO settings, per-terrain hyperparameters)
+is taken verbatim from the archived summary.json of the corresponding terrain,
+so the ONLY change relative to the archive is the evaluation protocol.
 
 ONE (terrain, seed) PER PROCESS so the run can be parallelised.
 
@@ -27,12 +47,18 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import bundle_paths as bp                              # noqa: E402
+REPRO = (Path(r"E:\从D盘搬迁\科研项目整理\03_无人机路径规划\05_IEEEAccess2026_重投"
+              r"\CAST-MARL_IEEE_Access_R1\experiments\experimental_runs\reproducibility"))
+ARCHIVE_SUMMARIES = Path(
+    r"E:\从D盘搬迁\科研项目整理\03_无人机路径规划\无人机路径规划\无人机路径规划"
+    r"\terrain_assets_central_20260416\summaries")
 
-REPRO = bp.REPRO
-ARCHIVE_SUMMARIES = bp.ARCHIVE_SUMMARIES
-LOCAL_DATASET = bp.DATASETS
+# Local dataset paths (the archived config points at /root/autodl-tmp/...).
+_DS = (r"C:\Users\2460566145\Documents\无人机\_source_extract\无人机路径规划"
+       r"\无人机部署\dataset")
+LOCAL_DATASET = [os.path.join(_DS, f) for f in
+                 ("dataset1_users35.npz", "dataset1_users45.npz",
+                  "dataset1_users60.npz")]
 for _p in LOCAL_DATASET:
     if not os.path.exists(_p):
         raise SystemExit("dataset missing: %s" % _p)
@@ -48,49 +74,8 @@ sys.modules["cms"] = mod
 assert _spec.loader is not None
 _spec.loader.exec_module(mod)
 
-# Bundle-local terrain-manifest path, absent by design: the 3-D terrain asset
-# used by the original April 2026 runs is not part of the released artifacts,
-# so the terrain label drives obstacle generation over a flat surface.  Set
-# explicitly so that training and evaluation see identical geometry.
-mod.TERRAIN_MANIFEST_PATH = str(REPRO / "missing_terrain_manifest.json")
-mod._TERRAIN_CACHE.clear()
-
-# The five compared methods and the four component variants.  A job may train
-# all of them, one half, or a single model, so that a many-core machine is fully
-# used.
-MAIN_LIST = [("tmarl", "CAST-MARL"), ("mappo", "MAPPO"),
-             ("maddpg", "MADDPG"), ("qmix", "QMIX"), ("ppo", "PPO")]
-ABL_LIST = list(mod.MAINLINE_ABLATION_VARIANTS)
-MAIN_NAMES = {n for n, _ in MAIN_LIST}
-
-
-def select_models(group):
-    """Return (main_models, ablation_models) selected by --group."""
-    if group == "all":
-        return list(MAIN_LIST), list(ABL_LIST)
-    if group == "main":
-        return list(MAIN_LIST), []
-    if group == "ablation":
-        return [], list(ABL_LIST)
-    m = [x for x in MAIN_LIST if x[0] == group]
-    if m:
-        return m, []
-    a = [x for x in ABL_LIST if x[0] == group]
-    if a:
-        return [], a
-    raise SystemExit("unknown --group value: %s" % group)
-
-
-def train_one(name, config, dataset, output_dir):
-    if name == "maddpg":
-        return mod.train_maddpg_variant(config, dataset, output_dir,
-                                        stage_label="main")
-    if name == "qmix":
-        return mod.train_qmix_variant(config, dataset, output_dir,
-                                      stage_label="main")
-    return mod.train_variant(name, config, dataset, output_dir,
-                             stage_label=("main" if name in MAIN_NAMES
-                                          else "ablation"))
+MAIN_VARIANTS = [("tmarl", "CAST-MARL"), ("mappo", "MAPPO"),
+                 ("ppo", "PPO")]          # trained via train_variant
 
 
 def archived_config(terrain: str, seed: int, device: str, out_root: str):
@@ -108,22 +93,29 @@ def archived_config(terrain: str, seed: int, device: str, out_root: str):
     return mod.ExperimentConfig(**cfgd)
 
 
-def train_all(config, dataset, output_dir, main_models, abl_models):
-    """Train the selected models.
-
-    set_seed is called before the first model, and because a job normally
-    trains a single model it means every model starts from the same seeded
-    state.  The archived pipeline trained all variants in one process, so each
-    variant inherited a different RNG offset from the variants trained before
-    it; that offset is a training-noise confound in a component ablation, and
-    splitting the runs removes it.
-    """
+def train_all(config, dataset, output_dir: str):
+    """Mirror run_train_pipeline's training sequence exactly (L5800-5820),
+    but keep the run objects so we can evaluate with our own protocol."""
     mod.set_seed(config.seed)
     runs = {}
     t0 = time.time()
-    for name, _display in list(main_models) + list(abl_models):
-        runs[name] = train_one(name, config, dataset, output_dir)
-        print("  trained %-16s %7.1fs" % (name, time.time() - t0), flush=True)
+    runs["tmarl"] = mod.train_variant("tmarl", config, dataset, output_dir,
+                                      stage_label="main")
+    print("  trained tmarl  %.1fs" % (time.time() - t0), flush=True)
+    runs["mappo"] = mod.train_variant("mappo", config, dataset, output_dir,
+                                      stage_label="main")
+    runs["maddpg"] = mod.train_maddpg_variant(config, dataset, output_dir,
+                                              stage_label="main")
+    runs["qmix"] = mod.train_qmix_variant(config, dataset, output_dir,
+                                          stage_label="main")
+    runs["ppo"] = mod.train_variant("ppo", config, dataset, output_dir,
+                                    stage_label="main")
+    for variant_name, display in mod.MAINLINE_ABLATION_VARIANTS:
+        runs[variant_name] = mod.train_variant(variant_name, config, dataset,
+                                               output_dir,
+                                               stage_label="ablation")
+        print("  trained %-14s %.1fs" % (variant_name, time.time() - t0),
+              flush=True)
     for name, run in runs.items():
         if run.get("best_state") is not None:
             run["model"].load_state_dict(run["best_state"])
@@ -179,10 +171,6 @@ def main():
     ap.add_argument("--seed", type=int, required=True)
     ap.add_argument("--outdir", required=True)
     ap.add_argument("--eval-seed-base", type=int, default=90000)
-    ap.add_argument("--group", default="all",
-                    help="which models this process trains: 'all', 'main' (the "
-                         "five compared methods), 'ablation' (the four variants), "
-                         "or a single model name such as tmarl or no_attention")
     ap.add_argument("--smoke", action="store_true",
                     help="tiny run that exercises every code path, for validation only")
     args = ap.parse_args()
@@ -211,12 +199,11 @@ def main():
     dataset = mod.ScenarioDataset(cfg.dataset_paths)
     t_start = time.time()
     try:
-        main_models, abl_models = select_models(args.group)
-        runs, train_s = train_all(cfg, dataset, str(out / "train_artifacts"),
-                                  main_models, abl_models)
+        runs, train_s = train_all(cfg, dataset, str(out / "train_artifacts"))
 
         bench = []
-        for name, display in main_models:
+        for name, display in MAIN_VARIANTS + [("maddpg", "MADDPG"),
+                                              ("qmix", "QMIX")]:
             r = evaluate(name, display, cfg, dataset, runs[name], eval_seed)
             bench.append(r)
             print("  EVAL %-10s cov=%.3f conflict=%.6f events=%d/%d eps"
@@ -224,8 +211,9 @@ def main():
                      r["episodes_with_conflict"], EVAL_EPISODES), flush=True)
 
         abl = []
-        for name, display in abl_models:
-            r = evaluate(name, display, cfg, dataset, runs[name], eval_seed)
+        for variant_name, display in mod.MAINLINE_ABLATION_VARIANTS:
+            r = evaluate(variant_name, display, cfg, dataset,
+                         runs[variant_name], eval_seed)
             abl.append(r)
             print("  ABL  %-16s cov=%.3f conflict=%.6f events=%d/%d eps"
                   % (display, r["coverage_mean"], r["conflict_rate_mean"],
@@ -256,11 +244,10 @@ def main():
                 "fixed eval_seed, so the protocol is reproducible."),
         }
         tag = "%s_seed%d" % (args.terrain, args.seed)
-        group_suffix = "" if args.group == "all" else "_" + args.group
-        (out / ("controlled_%s%s.json" % (tag, group_suffix))).write_text(
+        (out / ("controlled_%s.json" % tag)).write_text(
             json.dumps(payload, indent=2), encoding="utf-8")
-        print("WROTE controlled_%s%s.json  (%.1f min total)"
-              % (tag, group_suffix, (time.time() - t_start) / 60.0), flush=True)
+        print("WROTE controlled_%s.json  (%.1f min total)"
+              % (tag, (time.time() - t_start) / 60.0), flush=True)
         print("CONTROLLED RUN DONE", flush=True)
     except Exception:
         traceback.print_exc()

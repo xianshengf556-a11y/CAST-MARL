@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Portable path resolution for the CAST-MARL resubmission bundle.
+"""Portable path resolution for the CAST-MARL artifact bundle.
 
 The bundle layout is::
 

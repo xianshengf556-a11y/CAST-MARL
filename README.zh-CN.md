@@ -21,11 +21,23 @@ experimental_runs/
   reproducibility/     实验源码与基准模块
   *.pth                两个存档检查点
 scripts/               产出论文各表的驱动脚本
+  run_terrain_controlled.py         受控基准与组件消融
+  collect_controlled_results.py     汇总为论文表格
+  exp_fallback_threshold.py         空可行集统计与阈值扫描
+  run_runtime_stats.py              滤波器决策耗时分布
+  exp_low_coverage.py               低覆盖场景检验
+  exp_correction_scale.py           修正半径扫描
+  exp_crossmap_comparison.py        未知地图上规划器与安全层对比
+  exp_reward_sensitivity.py         奖励系数敏感性
+  run_control_single_terrain_160.py 等训练预算对照
 archived_configs/      各地形的原始配置（逐字沿用）
 dataset/               任务数据集（0.5 MB）
 results/               驱动脚本的输出，含论文表格
 run_all.sh             一键复现
 ```
+
+`exp_*.py` 与预算对照属于单点分析脚本，各自独立运行并输出一个 CSV，
+是论文正文与回复信中对应结论的证据来源。
 
 ## 运行环境
 

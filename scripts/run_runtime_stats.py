@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""R3 concern 8: full distribution of the CVA-SP filter decision time.
+"""Full distribution of the CVA-SP filter decision time.
 
 The manuscript reported mean and p95 only.  Because the distribution is
 strongly right-skewed (rare empty-feasible-set fallbacks), the mean sits ABOVE
@@ -21,11 +21,10 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import bundle_paths as bp                              # noqa: E402
-
-REPRO = bp.REPRO
-OUT = bp.RESULTS / "runtime"
+REPRO = (Path(r"E:\从D盘搬迁\科研项目整理\03_无人机路径规划\05_IEEEAccess2026_重投"
+              r"\CAST-MARL_IEEE_Access_R1\experiments\experimental_runs\reproducibility"))
+OUT = Path(r"E:\从D盘搬迁\科研项目整理\03_无人机路径规划\05_IEEEAccess2026_重投"
+           r"\CAST-MARL_IEEE_Access_R1\results\runtime")
 OUT.mkdir(parents=True, exist_ok=True)
 
 SPEC = importlib.util.spec_from_file_location(

@@ -9,7 +9,7 @@ Output: CSV tables with
             counts, with an exact Poisson (Garwood) 95% confidence interval
           * the number of evaluation episodes that contained any conflict at
             all -- this is the quantity that shows why the original ablation
-            conflict column needs integer event counts to be interpretable
+            conflict column was not interpretable
 
 Usage:
   python collect_controlled_results.py --indir <dir> --outdir <dir>
@@ -74,23 +74,12 @@ def aggregate(runs, key):
     return out
 
 
-def build_table(agg, terrains, order, variant_key, fallback_agg=None):
-    """Build a paper table.
-
-    `fallback_agg` supplies records absent from `agg`.  Used for the ablation
-    table: with --group the ablation process trains only the four component
-    variants, so the "Full" (CAST-MARL) row is taken from the benchmark records
-    of the same (terrain, seed) runs.
-    """
+def build_table(agg, terrains, order, variant_key):
     rows = []
     for terrain in terrains:
         per_method = agg.get(terrain, {})
         for method in order:
             recs = per_method.get(method)
-            used_fallback = False
-            if not recs and fallback_agg is not None:
-                recs = fallback_agg.get(terrain, {}).get(method)
-                used_fallback = bool(recs)
             if not recs:
                 continue
             cov_m, cov_s = ms([x["coverage_mean"] for x in recs])
@@ -163,8 +152,7 @@ def main():
     abl_agg = aggregate(runs, "ablation")
 
     bench_rows = build_table(bench_agg, terrains, BENCH_ORDER, False)
-    abl_rows = build_table(abl_agg, terrains, ABL_ORDER, True,
-                           fallback_agg=bench_agg)
+    abl_rows = build_table(abl_agg, terrains, ABL_ORDER, True)
 
     write_csv(os.path.join(args.outdir, "Table_benchmark_controlled.csv"),
               bench_rows)
@@ -190,7 +178,7 @@ def main():
     write_csv(os.path.join(args.outdir, "PerSeed_long.csv"), long_rows)
 
     # human-readable console summary of the conflict evidence
-    print("\nCONFLICT EVIDENCE: integer pair-event counts per condition")
+    print("\nCONFLICT EVIDENCE (integer pair-event counts)")
     print("%-9s %-18s %8s %10s %12s %14s"
           % ("terrain", "variant", "events", "eps", "eps_with", "rate[95% CI]"))
     for row in abl_rows:

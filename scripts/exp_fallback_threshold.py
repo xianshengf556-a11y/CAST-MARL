@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-"""Empty-feasible-set statistics and threshold sweeps.
+"""Empty-feasible-set frequency and safety-threshold sweeps.
 
-This script characterizes two things.  First, how often the execution filter
-finds no admissible correction at all, across terrain conditions and fleet
-sizes, and whether such failures occur in consecutive steps for a single
-vehicle.  Second, how the separation margin of the filter and the
-conflict-reporting threshold affect the reported behavior.
+PART A: characterize the empty-set fallback frequency across scenarios and
+fleet sizes and discuss whether consecutive empty sets can occur."
+
+PART B: report the impact of the d_safe margin and the d_conflict reporting
+study so as for d_conflict apart from the fixed values. How this is chosen,
+why fix number not range..."
 
 DESIGN NOTES (important for defensibility)
 ------------------------------------------
@@ -48,11 +49,10 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import bundle_paths as bp                              # noqa: E402
-
-REPRO = bp.REPRO
-OUT = bp.RESULTS / "fallback_threshold"
+REPRO = (Path(r"E:\从D盘搬迁\科研项目整理\03_无人机路径规划\05_IEEEAccess2026_重投"
+              r"\CAST-MARL_IEEE_Access_R1\experiments\experimental_runs\reproducibility"))
+OUT = (Path(r"E:\从D盘搬迁\科研项目整理\03_无人机路径规划\05_IEEEAccess2026_重投"
+            r"\CAST-MARL_IEEE_Access_R1\results\fallback_threshold"))
 OUT.mkdir(parents=True, exist_ok=True)
 
 _spec = importlib.util.spec_from_file_location("cva", REPRO / "cva_sp_benchmarks.py")
@@ -261,7 +261,7 @@ def run_episode(seed, dataset, env_type, obstacle_ratio, num_uavs,
 # modes
 # --------------------------------------------------------------------------
 def mode_fallback(dataset):
-    """R3-9: empty-set fallback frequency across scenarios and fleet sizes."""
+    """Empty-set fallback frequency across scenarios and fleet sizes."""
     rows = []
     recs = []
     for label, env_type, ratio in SCENARIOS:
@@ -350,7 +350,7 @@ def mode_fallback(dataset):
 
 
 def mode_threshold(dataset):
-    """R2-9: sweep d_safe (filter margin) and d_conflict (reporting threshold)."""
+    """Sweep d_safe (filter margin) and d_conflict (reporting threshold)."""
     label, env_type, ratio = "urban", "terrain_urban", 0.20
     num_uavs = 6
 

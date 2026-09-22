@@ -27,10 +27,8 @@ import sys
 import time
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import bundle_paths as bp                              # noqa: E402
-
-REPRO = bp.REPRO
+REPRO = (Path(r"E:\从D盘搬迁\科研项目整理\03_无人机路径规划\05_IEEEAccess2026_重投"
+              r"\CAST-MARL_IEEE_Access_R1\experiments\experimental_runs\reproducibility"))
 
 spec = importlib.util.spec_from_file_location("md", REPRO / "multi_domain_train.py")
 md = importlib.util.module_from_spec(spec)
@@ -41,7 +39,8 @@ spec.loader.exec_module(md)
 import numpy as np
 import torch
 
-RESULTS = bp.RESULTS / "control_single_terrain_160"
+RESULTS = (Path(r"E:\从D盘搬迁\科研项目整理\03_无人机路径规划\05_IEEEAccess2026_重投"
+                r"\CAST-MARL_IEEE_Access_R1\results\control_single_terrain_160"))
 
 # Which single terrain the control trains on.  The paper's single-terrain
 # reference checkpoint was trained on plain, so plain is the matched control.
@@ -119,7 +118,7 @@ def main():
                 "protocol": "unchanged cross-map test set (4 terrains)",
             },
             "purpose": "disentangle domain diversity from training budget "
-                       "(R1 concern 3 / R3 concern 4)",
+                       "single-terrain continuation at an equal training budget",
         }, indent=2), encoding="utf-8")
 
     print("SUMMARY:", flush=True)

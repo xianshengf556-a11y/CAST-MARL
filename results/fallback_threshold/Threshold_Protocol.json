@@ -1,0 +1,15 @@
+{
+  "scenario": "urban",
+  "env_type": "terrain_urban",
+  "obstacle_ratio": 0.2,
+  "num_uavs": 6,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "episodes_per_seed": 12,
+  "note": "d_conflict is swept by recomputing pairwise-distance events from the recorded trajectory, so the simulator (and its reward/risk terms) is never modified. d_safe is swept only inside the filter."
+}

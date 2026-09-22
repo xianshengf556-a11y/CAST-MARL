@@ -1,0 +1,36 @@
+{
+  "terrains": [
+    {
+      "label": "plain",
+      "env_type": "terrain_plain",
+      "obstacle_ratio": 0.08
+    },
+    {
+      "label": "urban",
+      "env_type": "terrain_urban",
+      "obstacle_ratio": 0.2
+    },
+    {
+      "label": "mountain",
+      "env_type": "terrain_mountain",
+      "obstacle_ratio": 0.16
+    },
+    {
+      "label": "mountain-dense",
+      "env_type": "terrain_mountain",
+      "obstacle_ratio": 0.3
+    }
+  ],
+  "num_uavs": 6,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "episodes_per_seed": 12,
+  "astar_protocol": "cva_sp_benchmarks (20x20 grid, 135 m inflation)",
+  "greedy_protocol": "evaluate_controller(model=None, baseline_name=...)",
+  "note": "the archived zero-shot CAST-MARL rows for the same conditions are reported in the manuscript and in the archived cross-map records"
+}

@@ -32,7 +32,8 @@ scripts/               产出论文各表的驱动脚本
   run_control_single_terrain_160.py 等训练预算对照
 archived_configs/      各地形的原始配置（逐字沿用）
 dataset/               任务数据集（0.5 MB）
-results/               驱动脚本的输出，含论文表格
+results/               论文每个数字对应的逐种子记录与汇总表（见 results/README.md）；
+                       训练日志不随仓库发布，由 run_all.sh 重新生成
 run_all.sh             一键复现
 ```
 

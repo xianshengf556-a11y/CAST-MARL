@@ -1,0 +1,10 @@
+kind,terrain,seed,eval_env,eval_seed,method,coverage_mean,conflict_rate_mean,conflict_events_total,episodes_with_conflict,path_length_mean,reward_mean
+benchmark,plain,42,terrain_plain,94201,CAST-MARL,48.61111,0.0,0,0,10844.046,38.14654
+benchmark,plain,42,terrain_plain,94201,MAPPO,27.22222,0.0,0,0,536.802,22.10917
+benchmark,plain,42,terrain_plain,94201,PPO,27.22222,0.00666667,7,1,715.553,21.82187
+benchmark,plain,42,terrain_plain,94201,MADDPG,40.55556,0.00380952,4,1,4683.627,35.04853
+benchmark,plain,42,terrain_plain,94201,QMIX,51.11111,0.0,0,0,6448.951,49.47235
+ablation,plain,42,terrain_plain,94201,w/o Transformer,29.44444,0.0,0,0,2034.391,24.95693
+ablation,plain,42,terrain_plain,94201,w/o Attention,26.38889,0.0,0,0,1754.569,22.04757
+ablation,plain,42,terrain_plain,94201,w/o CTDE,30.83333,0.0,0,0,2761.653,25.32663
+ablation,plain,42,terrain_plain,94201,w/o Safety Layer,44.72222,0.00761905,8,1,9652.444,35.82494

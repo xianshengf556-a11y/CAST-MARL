@@ -1,0 +1,25 @@
+{
+  "control": "single-terrain continued training at matched budget",
+  "start_checkpoint": "localized_uav_best.pth (same as multi-domain run)",
+  "terrain_mix": [
+    "plain"
+  ],
+  "ppo_iterations": 160,
+  "batch_episodes": 8,
+  "env_episodes_total": 1280,
+  "lr": 0.00015,
+  "seed": 2026,
+  "train_seconds": 1652.8,
+  "evaluation": {
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "episodes_per_seed": 12,
+    "protocol": "unchanged cross-map test set (4 terrains)"
+  },
+  "purpose": "disentangle domain diversity from training budget (R1 concern 3 / R3 concern 4)"
+}

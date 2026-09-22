@@ -1,0 +1,41 @@
+{
+  "configs": [
+    {
+      "num_uavs": 6,
+      "max_steps": 35,
+      "label": "6 UAVs / 35 steps (archived, saturated)"
+    },
+    {
+      "num_uavs": 4,
+      "max_steps": 20,
+      "label": "4 UAVs / 20 steps"
+    },
+    {
+      "num_uavs": 3,
+      "max_steps": 15,
+      "label": "3 UAVs / 15 steps"
+    },
+    {
+      "num_uavs": 2,
+      "max_steps": 12,
+      "label": "2 UAVs / 12 steps"
+    }
+  ],
+  "variants": [
+    "raw",
+    "nearest",
+    "cva"
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "episodes_per_seed": 12,
+  "environment": "terrain_urban label, episode-generated obstacles, ratio 0.12",
+  "d_safe": 138.0,
+  "lambda_d": 0.35,
+  "purpose": "reduce coverage pressure along the two axes suggested by the reviewers (fleet size relative to a fixed workspace, and horizon length) so that the coverage-aware correction term has room to differentiate admissible candidates"
+}

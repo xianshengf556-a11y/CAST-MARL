@@ -1,0 +1,5 @@
+model,target_map,coverage_mean,conflict_rate_mean,reward_mean,path_length_mean,coverage_std,conflict_rate_std,reward_std,path_length_std,n
+single-terrain-control-160,plain,78.0251,0.0027,69.7273,11318.7198,9.6594,0.0064,11.1852,1115.0562,60
+single-terrain-control-160,urban,79.455,0.002,71.6831,11618.6057,9.7574,0.0074,10.2812,1037.5757,60
+single-terrain-control-160,mountain,77.8148,0.0014,70.7437,11252.362,10.386,0.0043,11.5711,1199.6851,60
+single-terrain-control-160,mountain-dense,80.8624,0.0036,71.8874,11755.4757,9.7094,0.0091,10.344,1165.5522,60

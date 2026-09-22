@@ -1,0 +1,32 @@
+{
+  "scenarios": [
+    {
+      "num_uavs": 6,
+      "max_steps": 35,
+      "label": "saturated (6 UAVs / 35 steps)"
+    },
+    {
+      "num_uavs": 3,
+      "max_steps": 15,
+      "label": "low coverage (3 UAVs / 15 steps)"
+    }
+  ],
+  "rho_a_values": [
+    0.55,
+    1.0,
+    1.5,
+    2.0
+  ],
+  "d_safe": 138.0,
+  "lambda_d": 0.35,
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "episodes_per_seed": 12,
+  "sensing_radius_m": "612-918 (altitude dependent)",
+  "hypothesis": "the archived correction reach (82.5 m at rho_a=0.55) is an order of magnitude below the sensing radius, so the coverage term cannot differentiate candidates"
+}

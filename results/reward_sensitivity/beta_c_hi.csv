@@ -1,0 +1,5 @@
+setting,beta_c,beta_c_prime,beta_q,map,coverage_mean,coverage_std,conflict_mean,conflict_events_total,reward_mean,path_mean
+beta_c_hi,12.4,6.7,0.45,plain,75.5437,10.2451,0.00304762,96,133.5771,13155.76
+beta_c_hi,12.4,6.7,0.45,urban,75.5437,10.2451,0.00304762,96,133.5771,13155.76
+beta_c_hi,12.4,6.7,0.45,mountain,74.6971,11.5415,0.0035873,113,131.8994,13041.0
+beta_c_hi,12.4,6.7,0.45,mountain-dense,74.6971,11.5415,0.0035873,113,131.8994,13041.0

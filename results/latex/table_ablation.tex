@@ -1,0 +1,19 @@
+\begin{table}[!t]
+
+\centering
+\caption{Component ablation under the controlled protocol: five training seeds, one model per process, training and evaluation on the same named terrain. Every variant is retrained from the same seeded state; the full-model row is repeated from Table~\ref{tab:benchmark} for reference.}
+\label{tab:module-ablation}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrr}
+\toprule
+Terrain & Variant & Coverage (\%) & Conflict events \\
+\midrule
+\multirow{5}{*}{Plain} & \textbf{CAST-MARL} & \textbf{48.611 $\pm$ 0.000} & 0 \\
+ & w/o Transformer & 29.444 $\pm$ 0.000 & 0 \\
+ & w/o Attention & 26.389 $\pm$ 0.000 & 0 \\
+ & w/o CTDE & 30.833 $\pm$ 0.000 & 0 \\
+ & w/o Safety Layer & 44.722 $\pm$ 0.000 & 8 \\
+\bottomrule
+\end{tabular}
+\end{table}

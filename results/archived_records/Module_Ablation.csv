@@ -1,0 +1,5 @@
+Variant,Coverage,Conflict Rate,Reward,Path Length,Generalization
+w/o Transformer,60.013,0.0,55.645,5943.19,60.013
+w/o Attention,57.282,0.0,51.837,6412.229,57.282
+w/o CTDE,57.956,0.007,52.84,8195.691,57.956
+w/o Safety Layer,58.889,0.0056,47.374,14065.973,58.889

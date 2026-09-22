@@ -1,0 +1,5 @@
+model,target_map,coverage_mean,conflict_rate_mean,reward_mean,path_length_mean,coverage_std,conflict_rate_std,reward_std,path_length_std,n
+multi-domain,plain,77.2963,0.0015,67.7709,7270.439,10.3351,0.0048,11.9516,1016.538,60
+multi-domain,urban,79.4325,0.0006,69.3535,7240.9131,10.5643,0.0044,11.6047,1248.9349,60
+multi-domain,mountain,77.8558,0.0016,69.4808,6852.9478,9.1964,0.0067,10.8207,1015.7325,60
+multi-domain,mountain-dense,78.3122,0.0027,68.2226,6990.1099,9.8145,0.007,10.1864,998.7273,60

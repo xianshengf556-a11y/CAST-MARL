@@ -1,0 +1,19 @@
+\begin{table*}[!t]
+
+\centering
+\caption{Terrain benchmark under the controlled protocol: five training seeds, training and evaluation on the same named terrain, one model per process, and a fixed recorded evaluation seed. Coverage is mean $\pm$ standard deviation over seeds. Conflict is the total number of unordered pair events over all evaluated episodes, with its exact Poisson 95\% interval; the counts are small enough that a rate alone would not be interpretable.}
+\label{tab:benchmark}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrrr}
+\toprule
+Terrain & Method & Coverage (\%) & Conf. events & Conflict rate (95\% CI) & Path (m) \\
+\midrule
+\multirow{5}{*}{Plain} & \textbf{CAST-MARL} & \textbf{48.611 $\pm$ 0.000} & 0 & 0.000000 [0.000000, 0.003513] & 10844.0 \\
+ & MAPPO & 27.222 $\pm$ 0.000 & 0 & 0.000000 [0.000000, 0.003513] & 536.8 \\
+ & MADDPG & 40.556 $\pm$ 0.000 & 4 & 0.003810 [0.001038, 0.009754] & 4683.6 \\
+ & QMIX & 51.111 $\pm$ 0.000 & 0 & 0.000000 [0.000000, 0.003513] & 6448.9 \\
+ & PPO & 27.222 $\pm$ 0.000 & 7 & 0.006667 [0.002680, 0.013736] & 715.5 \\
+\bottomrule
+\end{tabular}
+\end{table*}

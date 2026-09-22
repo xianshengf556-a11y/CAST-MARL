@@ -1,0 +1,33 @@
+{
+  "training": {
+    "episodes_per_terrain": 40,
+    "total_episodes": 160,
+    "batch_episodes": 8,
+    "ppo_epochs": 4,
+    "mini_batch_size": 128,
+    "clip_eps": 0.2,
+    "lr": 0.00015,
+    "terrain_mix": [
+      "plain",
+      "urban",
+      "mountain",
+      "mountain-dense"
+    ],
+    "seed": 2026,
+    "train_seconds": 1645.2,
+    "max_gpu_memory_mb": 98.7
+  },
+  "evaluation": {
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "episodes_per_seed": 12,
+    "protocol": "cross-map, deterministic rollout",
+    "metrics": "unchanged simulator step metrics"
+  },
+  "note": "only the data supply (per-episode terrain sampling) changed; network, reward, and CVA-SP logic unchanged."
+}

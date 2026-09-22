@@ -1,0 +1,27 @@
+\begin{longtable}{lllrrr}
+
+\caption{Per-seed records of the controlled rerun. Each row is one trained model evaluated on a fixed recorded evaluation seed. ``Events'' is the integer number of unordered pair events over all evaluated episodes for that row.}\label{tab:supp-perseed}\\
+\toprule
+Terrain & Seed & Method & Coverage (\%) & Events & Path (m) \\
+\midrule
+\endfirsthead
+\toprule
+Terrain & Seed & Method & Coverage (\%) & Events & Path (m) \\
+\midrule
+\endhead
+\midrule
+\multicolumn{6}{r}{continued on the next page}\\
+\endfoot
+\bottomrule
+\endlastfoot
+\multirow{5}{*}{Plain} & \multirow{5}{*}{42} & \textbf{CAST-MARL} & \textbf{48.611} & 0 & 10844.0 \\
+ &  & MAPPO & 27.222 & 0 & 536.8 \\
+ &  & MADDPG & 40.556 & 4 & 4683.6 \\
+ &  & QMIX & 51.111 & 0 & 6449.0 \\
+ &  & PPO & 27.222 & 7 & 715.6 \\
+\midrule
+\multirow{4}{*}{Plain} & \multirow{4}{*}{42} & w/o Transformer & 29.444 & 0 & 2034.4 \\
+ &  & w/o Attention & 26.389 & 0 & 1754.6 \\
+ &  & w/o CTDE & 30.833 & 0 & 2761.7 \\
+ &  & w/o Safety Layer & 44.722 & 8 & 9652.4 \\
+\end{longtable}

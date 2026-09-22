@@ -1,0 +1,41 @@
+{
+  "scenarios": [
+    {
+      "label": "plain",
+      "env_type": "terrain_plain",
+      "obstacle_ratio": 0.08
+    },
+    {
+      "label": "urban",
+      "env_type": "terrain_urban",
+      "obstacle_ratio": 0.2
+    },
+    {
+      "label": "mountain",
+      "env_type": "terrain_mountain",
+      "obstacle_ratio": 0.16
+    },
+    {
+      "label": "mountain-dense",
+      "env_type": "terrain_mountain",
+      "obstacle_ratio": 0.3
+    }
+  ],
+  "fleet_sizes": [
+    4,
+    6,
+    8
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46
+  ],
+  "episodes_per_seed": 12,
+  "max_steps": 35,
+  "d_safe": 138.0,
+  "lambda": 0.35,
+  "self_check_max_abs_diff_conflict_rate": 0.0
+}

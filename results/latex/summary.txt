@@ -1,0 +1,14 @@
+=== BENCHMARK ===
+plain     CAST-MARL          cov 48.611 +- 0.000  events    0  rate 0.000000 [0.000000, 0.003513]  path   10844.0  (episodes with any conflict: 0/2)
+plain     MAPPO              cov 27.222 +- 0.000  events    0  rate 0.000000 [0.000000, 0.003513]  path     536.8  (episodes with any conflict: 0/2)
+plain     MADDPG             cov 40.556 +- 0.000  events    4  rate 0.003810 [0.001038, 0.009754]  path    4683.6  (episodes with any conflict: 1/2)
+plain     QMIX               cov 51.111 +- 0.000  events    0  rate 0.000000 [0.000000, 0.003513]  path    6448.9  (episodes with any conflict: 0/2)
+plain     PPO                cov 27.222 +- 0.000  events    7  rate 0.006667 [0.002680, 0.013736]  path     715.5  (episodes with any conflict: 1/2)
+
+=== ABLATION ===
+plain     CAST-MARL          cov 48.611 +- 0.000  events    0  rate 0.000000 [0.000000, 0.003513]  path   10844.0  (episodes with any conflict: 0/2)
+plain     w/o Transformer    cov 29.444 +- 0.000  events    0  rate 0.000000 [0.000000, 0.003513]  path    2034.4  (episodes with any conflict: 0/2)
+plain     w/o Attention      cov 26.389 +- 0.000  events    0  rate 0.000000 [0.000000, 0.003513]  path    1754.6  (episodes with any conflict: 0/2)
+plain     w/o CTDE           cov 30.833 +- 0.000  events    0  rate 0.000000 [0.000000, 0.003513]  path    2761.7  (episodes with any conflict: 0/2)
+plain     w/o Safety Layer   cov 44.722 +- 0.000  events    8  rate 0.007619 [0.003289, 0.015013]  path    9652.4  (episodes with any conflict: 1/2)
+

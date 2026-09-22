@@ -1,0 +1,25 @@
+map,family,method,episodes,coverage_mean,coverage_std,conflict_mean,conflict_events_total,path_mean,path_std
+plain,A* protocol,A* (no safety layer),60,99.5053,1.1612,0.01024639,323,20884.67,4264.67
+plain,A* protocol,A* + nearest-point,60,99.5886,1.0467,0.0,0,20867.69,4277.81
+plain,A* protocol,A* + CVA-SP,60,99.5053,1.1612,0.0,0,20852.72,4269.64
+urban,A* protocol,A* (no safety layer),60,99.8135,0.5817,0.00957906,302,19824.14,4467.73
+urban,A* protocol,A* + nearest-point,60,99.8611,0.4645,0.0,0,19594.54,4395.25
+urban,A* protocol,A* + CVA-SP,60,99.8611,0.4645,0.0,0,19588.48,4380.75
+mountain,A* protocol,A* (no safety layer),60,99.5582,1.3021,0.0109363,344,20395.48,4111.03
+mountain,A* protocol,A* + nearest-point,60,99.6058,1.1493,0.0,0,20366.76,4094.37
+mountain,A* protocol,A* + CVA-SP,60,99.6058,1.1493,0.0,0,20359.09,4090.53
+mountain-dense,A* protocol,A* (no safety layer),60,99.0198,3.329,0.01451156,457,21598.8,4122.47
+mountain-dense,A* protocol,A* + nearest-point,60,99.2421,2.909,0.0,0,21487.4,4122.25
+mountain-dense,A* protocol,A* + CVA-SP,60,99.2421,2.909,3.268e-05,1,21527.01,4162.98
+plain,greedy,Cluster-Greedy,60,58.0516,13.7971,3.175e-05,1,10338.61,0.0
+plain,greedy,Nearest-Greedy,60,80.3611,10.4344,0.0,0,14564.94,0.0
+plain,greedy,Frontier-Greedy,60,57.6429,11.0759,0.0011746,37,13080.05,0.0
+urban,greedy,Cluster-Greedy,60,58.4616,13.7715,0.0,0,10463.2,0.0
+urban,greedy,Nearest-Greedy,60,80.7857,10.0111,0.00015873,5,14344.34,0.0
+urban,greedy,Frontier-Greedy,60,59.6746,9.1601,0.00044444,14,12866.7,0.0
+mountain,greedy,Cluster-Greedy,60,58.9246,13.7849,6.349e-05,2,10561.39,0.0
+mountain,greedy,Nearest-Greedy,60,80.3413,9.5288,0.00019048,6,14505.41,0.0
+mountain,greedy,Frontier-Greedy,60,58.5119,13.1532,0.00060317,19,12607.55,0.0
+mountain-dense,greedy,Cluster-Greedy,60,58.0675,12.9556,9.524e-05,3,10773.67,0.0
+mountain-dense,greedy,Nearest-Greedy,60,77.3968,12.7994,0.0,0,14076.9,0.0
+mountain-dense,greedy,Frontier-Greedy,60,56.6389,12.2372,0.00028571,9,12876.14,0.0

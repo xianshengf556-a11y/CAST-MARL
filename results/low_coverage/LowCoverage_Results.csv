@@ -1,0 +1,17 @@
+config,conflict_events_total,conflict_mean,corrections_mean,coverage_mean,coverage_std,episodes,max_steps,num_uavs,paired_p_coverage,paired_p_path,paired_t_coverage,paired_t_path,path_mean,variant
+"6 UAVs / 35 steps (archived, saturated)",323,0.01024639,0.0,99.5053,1.1612,60,35,6,,,,,20884.67,raw
+"6 UAVs / 35 steps (archived, saturated)",0,0.0,2.033,99.5886,1.0467,60,35,6,,,,,20867.69,nearest
+"6 UAVs / 35 steps (archived, saturated)",0,0.0,2.233,99.5053,1.1612,60,35,6,,,,,20852.72,cva
+"6 UAVs / 35 steps (archived, saturated)",,,,-0.0833,0.4779,60,35,6,0.1819079312603495,0.005291072891371277,-1.3508,-2.8962,-14.97,PAIRED_cva_minus_nearest
+4 UAVs / 20 steps,60,0.00833333,0.0,78.5556,9.3846,60,20,4,,,,,10640.96,raw
+4 UAVs / 20 steps,1,0.00013889,0.533,78.5952,9.3568,60,20,4,,,,,10634.55,nearest
+4 UAVs / 20 steps,1,0.00013889,0.6,78.5476,9.3715,60,20,4,,,,,10635.73,cva
+4 UAVs / 20 steps,,,,-0.0476,0.3689,60,20,4,0.3213942797694451,0.7451941280149108,-1.0,0.3265,1.18,PAIRED_cva_minus_nearest
+3 UAVs / 15 steps,1,0.00037037,0.0,57.2857,8.3406,60,15,3,,,,,6158.93,raw
+3 UAVs / 15 steps,0,0.0,0.033,57.1746,8.5928,60,15,3,,,,,6159.57,nearest
+3 UAVs / 15 steps,0,0.0,0.033,57.1746,8.5928,60,15,3,,,,,6158.97,cva
+3 UAVs / 15 steps,,,,0.0,0.0,60,15,3,nan,0.3213942797694451,nan,-1.0,-0.61,PAIRED_cva_minus_nearest
+2 UAVs / 12 steps,3,0.00416667,0.0,39.6217,8.3774,60,12,2,,,,,3344.79,raw
+2 UAVs / 12 steps,0,0.0,0.1,39.6217,8.3774,60,12,2,,,,,3344.16,nearest
+2 UAVs / 12 steps,0,0.0,0.2,39.6217,8.3774,60,12,2,,,,,3343.18,cva
+2 UAVs / 12 steps,,,,0.0,0.0,60,12,2,nan,0.22277383246832824,nan,-1.2322,-0.98,PAIRED_cva_minus_nearest

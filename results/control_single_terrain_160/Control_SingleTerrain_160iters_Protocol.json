@@ -21,5 +21,5 @@
     "episodes_per_seed": 12,
     "protocol": "unchanged cross-map test set (4 terrains)"
   },
-  "purpose": "disentangle domain diversity from training budget (R1 concern 3 / R3 concern 4)"
+  "purpose": "disentangle domain diversity from the training budget at a matched iteration count"
 }

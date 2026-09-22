@@ -37,5 +37,5 @@
   "environment": "terrain_urban label, episode-generated obstacles, ratio 0.12",
   "d_safe": 138.0,
   "lambda_d": 0.35,
-  "purpose": "reduce coverage pressure along the two axes suggested by the reviewers (fleet size relative to a fixed workspace, and horizon length) so that the coverage-aware correction term has room to differentiate admissible candidates"
+  "purpose": "reduce coverage pressure along two axes (fleet size relative to a fixed workspace, and horizon length) so that the coverage-aware correction term has room to differentiate admissible candidates"
 }

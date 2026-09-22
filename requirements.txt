@@ -1,0 +1,9 @@
+# CAST-MARL reproducibility artifacts - Python dependencies
+#
+# The workload is simulation-bound; a CPU-only installation is sufficient.
+# Versions below are those used for the reported runs.
+
+numpy>=1.24,<2.0
+scipy>=1.10
+matplotlib>=3.7
+torch>=2.0

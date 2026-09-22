@@ -1,0 +1,16 @@
+# Keep shell scripts and Python sources as LF, so the driver still runs after a
+# clone on Linux. Without this, Git's autocrlf would rewrite shebang scripts
+# with CRLF and break them.
+* text=auto
+
+*.sh   text eol=lf
+*.py   text eol=lf
+*.json text eol=lf
+*.md   text eol=lf
+*.txt  text eol=lf
+
+# binary assets
+*.pth  binary
+*.npz  binary
+*.pdf  binary
+*.png  binary
